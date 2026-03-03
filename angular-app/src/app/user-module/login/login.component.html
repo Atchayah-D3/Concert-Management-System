@@ -1,0 +1,10 @@
+<h1>{{title}}</h1>
+<form [formGroup]="form">
+<label for="email">Email address</label>
+<input type="email" id="email" formControlName="userEmail" placeholder="Enter your email address">
+<br><label for="password">Password</label>
+<input type="password" id="password" formControlName="password" placeholder="Enter your password">
+<br>
+    <button [disabled]="form.invalid" (click)="handleLogin()">Login</button>
+    <span *ngIf="!isLoggedIn">{{loginMessage}}</span>
+</form>

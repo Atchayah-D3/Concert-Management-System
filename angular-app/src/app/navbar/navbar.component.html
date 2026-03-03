@@ -1,0 +1,11 @@
+<nav class="navbar">
+  <div class="nav-left">
+    <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    <a routerLink="/Concert" routerLinkActive="active">Concerts</a>
+    <a routerLink="/Booking" routerLinkActive="active">Booking</a>
+  </div>
+
+  <div class="nav-right">
+    <span class="count">Upcoming concerts: {{ concertCount }}</span>
+  </div>
+</nav>

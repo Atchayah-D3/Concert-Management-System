@@ -1,0 +1,14 @@
+<div class="concert-page">
+  <!-- <button (click)="showConcerts()">Show Concerts</button> -->
+  <div><h2>Available concerts</h2>
+  <div class="concert-list" >
+    
+    <div class="concert-card" *ngFor="let concert of concerts">
+      <h3>{{ concert.concertName }}</h3>
+      <p><strong>Artist:</strong> {{ concert.concertSpec?.artist }}</p>
+      <p><strong>Date:</strong> {{ concert.concertSpec?.date_Time }}</p>
+      <p><strong>Price:</strong> {{ concert.concertSpec?.price | currency:'INR'}}</p>
+    </div>
+  </div>
+</div>
+</div>

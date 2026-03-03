@@ -1,0 +1,14 @@
+<form [formGroup]="concertForm">
+  Concert Name
+  <input formControlName="concertName">
+   <Details>
+    <br><p>Fill in Concert Details</p>
+  <div formGroupName="concertSpec">
+ Date <input type="date" formControlName="date"><br>
+ Artist <input formControlName="artist"><br>
+  Price <input formControlName="price">
+  </div></Details>
+  <button type="submit"  [disabled]="concertForm.invalid"
+   (click)="sendConcert()">Add concert</button>
+</form>
+<app-concert-list></app-concert-list>

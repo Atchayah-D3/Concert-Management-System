@@ -1,0 +1,16 @@
+<form [formGroup]="bookingForm" class="booking-form">
+  <h2>Book a Concert</h2>
+
+  <label>Select Concert</label>
+  <select formControlName="concert">
+    <option value="" disabled>Select a concert</option>
+    <option *ngFor="let concert of concerts"
+            [value]="concert.concertId">
+      {{ concert.concertName }}
+    </option>
+  </select>
+
+  <button type="button" (click)="bookConcert()">
+    Book Concert
+  </button>
+</form>
