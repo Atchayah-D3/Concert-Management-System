@@ -19,6 +19,11 @@ namespace WebApplication1.Data
                 .WithOne(cs => cs.Concert)
                 .HasForeignKey<ConcertSpec>(cs => cs.ConcertId);
             modelBuilder.Entity<Concert>()
+                .HasOne(c => c.Creator)
+                .WithMany(u => u.Concerts)
+                .HasForeignKey(c => c.CreatorId)
+                .OnDelete(DeleteBehavior.Restrict);
+            modelBuilder.Entity<Concert>()
                 .Property(c => c.ConcertId)
                 .UseIdentityByDefaultColumn()
                 .HasIdentityOptions(startValue: 100);

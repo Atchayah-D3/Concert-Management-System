@@ -11,8 +11,10 @@ import { ConcertListComponent } from './concert-list/concert-list.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { BookingComponent } from './booking/booking.component';
-
-import { AddConcertService } from './auto-refresh.service';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//import { AddConcertService } from './auto-refresh.service';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
@@ -50,8 +52,10 @@ import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
     UserModuleModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ConfirmDialogModule,
+    BrowserAnimationsModule
   ],
-  providers: [
+  providers: [ConfirmationService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

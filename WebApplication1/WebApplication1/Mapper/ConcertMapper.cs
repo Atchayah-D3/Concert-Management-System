@@ -11,7 +11,7 @@ namespace WebApplication1.Mapper
             return new Concert
             {
                 ConcertName = request.ConcertName,
-                ConcertSpecs = ConcertSpecMapper.ToEntity(request.ConcertSpec)
+                ConcertSpecs = ConcertSpecMapper.ToEntity(request.ConcertSpec),
             };
         }
         public static ConcertResDto ToResponse(Concert concert)
@@ -20,7 +20,8 @@ namespace WebApplication1.Mapper
             {
                 ConcertId = concert.ConcertId,
                 ConcertName = concert.ConcertName,
-                ConcertSpec = ConcertSpecMapper.ToResponse(concert.ConcertSpecs)
+                ConcertSpec = ConcertSpecMapper.ToResponse(concert.ConcertSpecs),
+                CreatorId=concert.CreatorId
 
             };
         }

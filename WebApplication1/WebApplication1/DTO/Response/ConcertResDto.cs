@@ -5,6 +5,7 @@
         public int ConcertId { get; set; }
         public required string ConcertName { get; set; }
         public  ConcertSpecResDto ConcertSpec { get; set; } 
+        public int CreatorId { get; set; }
 
     }
 }

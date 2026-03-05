@@ -5,7 +5,9 @@ using WebApplication1.DTO.Response;
 using WebApplication1.Mapper;
 using WebApplication1.Models;
 using WebApplication1.Services;
+using System.Security.Claims;
 using WebApplication1.Services.ServiceImpl;
+using System.Reflection.Metadata.Ecma335;
 
 namespace WebApplication1.Controllers
 {
@@ -15,20 +17,33 @@ namespace WebApplication1.Controllers
     [Produces("application/json")]    
     public class ConcertController : ControllerBase
     {
-        private IConcertService _concertService;
-        public ConcertController(IConcertService concertService)
+        private readonly IConcertService _concertService;
+        private readonly OpaService _opaService;
+        public ConcertController(IConcertService concertService,OpaService opaService)
         {
             _concertService = concertService;
+            _opaService = opaService;
         }
-        [Authorize(Roles ="CONCERT_CREATOR")]
+       // [Authorize(Roles ="CONCERT_CREATOR")]
+        [Authorize]
         [HttpPost]
-        public ActionResult<ConcertResDto> Create(ConcertReqDto concertDto)
-        {           
+        //public ActionResult<ConcertResDto> Create(ConcertReqDto concertDto)
+        public async Task<ActionResult<ConcertResDto>> Create(ConcertReqDto concertDto)
+        {
+            int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+            var role = User.FindFirst(ClaimTypes.Role)?.Value?.ToUpper();
+            bool allowed =role!=null? 
+                await _opaService.IsAllowed(userId,role, "create_concert", "concert"): false;
+            Console.WriteLine(role);
+            if (!allowed)
+                return Forbid();
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
             Concert concert = ConcertMapper.ToEntity(concertDto);
+            concert.CreatorId = userId;
             Concert savedConcert = _concertService.AddConcert(concert);
             if (savedConcert != null)
             {
@@ -62,35 +77,60 @@ namespace WebApplication1.Controllers
             IEnumerable<ConcertResDto> response = ConcertMapper.ToResponse(concerts);
             return Ok(response);
         }
+        [Authorize]
         [HttpPut("{id:min(1)}")]
-        public ActionResult<ConcertResDto> Update([FromRoute] int id,[FromBody]ConcertReqDto request)
+        public async Task<ActionResult<ConcertResDto>> Update([FromRoute] int id,[FromBody]ConcertReqDto request)
         {
-            Concert update = ConcertMapper.ToEntity(request);
-            
-            if (_concertService.UpdateConcert(id, update))
-            {
-                return NoContent();
-            }
-            
-            return NotFound(new
+            int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+            var role = User.FindFirst(ClaimTypes.Role)?.Value?.ToUpper();
+            Concert concert = _concertService.GetConcert(id);
+            if (concert == null)
+                return NotFound(new
                 {
                     concertId = id,
                     message = "Requested Concert to update was not exists"
                 });
-        }
 
+            bool allowed = role != null ?
+                await _opaService.IsAllowed(userId, role, "update_concert", "concert", new { owner = concert.CreatorId })
+                : false;
+            if (!allowed)
+                return Forbid();
+
+            Concert update = ConcertMapper.ToEntity(request);
+            _concertService.UpdateConcert(id, update);
+            return NoContent();
+            
+            
+            
+        }
+        [Authorize]
         [HttpDelete("{id:min(1)}")]
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
-            return _concertService.DeleteConcert(id) ? 
-                Ok(new {
-                    concertId=id,
-                    message= "Concert removed successfully" }):
-                NotFound(new
+            int userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value);
+            var role = User.FindFirst(ClaimTypes.Role)?.Value?.ToUpper();
+            Concert concert = _concertService.GetConcert(id);
+            if(concert==null)
+                return NotFound(new
                 {
-                    concertId=id,
-                    message= "Requested Concert to delete was not exists"
+                    concertId = id,
+                    message = "Requested Concert to delete was not exists"
                 });
+
+            bool allowed = role != null ? 
+                await _opaService.IsAllowed(userId, role, "delete_concert", "concert",new {owner=concert.CreatorId}) 
+                : false;            
+            if (!allowed)
+                return Forbid();
+
+            _concertService.DeleteConcert(id);
+            return  Ok(new
+                {
+                    concertId = id,
+                    message = "Concert removed successfully"
+                });
+                
         }
     }
 }

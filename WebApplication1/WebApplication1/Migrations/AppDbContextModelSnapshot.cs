@@ -64,7 +64,12 @@ namespace WebApplication1.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int>("CreatorId")
+                        .HasColumnType("integer");
+
                     b.HasKey("ConcertId");
+
+                    b.HasIndex("CreatorId");
 
                     b.ToTable("Concerts");
                 });
@@ -120,7 +125,6 @@ namespace WebApplication1.Migrations
                         .HasColumnType("integer");
 
                     b.Property<string>("UserName")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.HasKey("UserId");
@@ -150,6 +154,17 @@ namespace WebApplication1.Migrations
                     b.Navigation("Concert");
                 });
 
+            modelBuilder.Entity("WebApplication1.Models.Concert", b =>
+                {
+                    b.HasOne("WebApplication1.Models.User", "Creator")
+                        .WithMany("Concerts")
+                        .HasForeignKey("CreatorId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Creator");
+                });
+
             modelBuilder.Entity("WebApplication1.Models.ConcertSpec", b =>
                 {
                     b.HasOne("WebApplication1.Models.Concert", "Concert")
@@ -172,6 +187,8 @@ namespace WebApplication1.Migrations
             modelBuilder.Entity("WebApplication1.Models.User", b =>
                 {
                     b.Navigation("Bookings");
+
+                    b.Navigation("Concerts");
                 });
 #pragma warning restore 612, 618
         }

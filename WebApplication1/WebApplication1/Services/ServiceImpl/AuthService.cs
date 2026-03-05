@@ -28,5 +28,10 @@ namespace WebApplication1.Services.ServiceImpl
                 return null;
             return user;
         }
+        public User Register(User request)
+        {
+           _userRepository.Add(request);
+            return request;
+        }
     }
 }

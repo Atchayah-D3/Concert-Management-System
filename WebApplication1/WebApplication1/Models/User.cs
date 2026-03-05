@@ -12,6 +12,7 @@
         public string Email { get; set; } = null!;
         public string HashedPassword { get; set; } = null!;
         public ICollection<Booking>? Bookings { get; set; }
+        public ICollection<Concert>? Concerts { get; set; }
 
     }
 }

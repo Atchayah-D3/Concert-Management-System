@@ -8,6 +8,8 @@ namespace WebApplication1.Models
         public required string ConcertName { get; set; }
         public ConcertSpec ConcertSpecs { get; set; } = null!; 
         public ICollection<Booking>? Bookings { get; set; }
+        public int CreatorId { get; set; }
+        public User Creator { get; set; } = null!;
 
     }
 }

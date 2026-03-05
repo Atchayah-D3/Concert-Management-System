@@ -4,4 +4,5 @@ export interface LoginResDto {
   loginMessage?: null | string;
   success?: boolean;
   token: null | string;
+  userId?: number;
 }

@@ -2,7 +2,33 @@
   {
     "ContainingType": "WebApplication1.Controllers.AuthController",
     "Method": "Login",
-    "RelativePath": "Auth",
+    "RelativePath": "Auth/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "WebApplication1.DTO.Request.UserReqDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "WebApplication1.DTO.Response.LoginResDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "WebApplication1.Controllers.AuthController",
+    "Method": "Register",
+    "RelativePath": "Auth/register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,

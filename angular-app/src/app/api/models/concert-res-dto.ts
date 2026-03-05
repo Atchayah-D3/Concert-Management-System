@@ -5,4 +5,5 @@ export interface ConcertResDto {
   concertId?: number;
   concertName: null | string;
   concertSpec?: ConcertSpecResDto;
+  creatorId?: number;
 }

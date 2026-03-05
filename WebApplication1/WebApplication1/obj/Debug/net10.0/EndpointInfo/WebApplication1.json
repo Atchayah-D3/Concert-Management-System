@@ -5,7 +5,55 @@
     "version": "1.0"
   },
   "paths": {
-    "/Auth": {
+    "/Auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserReqDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserReqDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserReqDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginResDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Auth/register": {
       "post": {
         "tags": [
           "Auth"
@@ -615,6 +663,10 @@
           },
           "concertSpec": {
             "$ref": "#/components/schemas/ConcertSpecResDto"
+          },
+          "creatorId": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -687,6 +739,10 @@
         ],
         "type": "object",
         "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
           "success": {
             "type": "boolean"
           },

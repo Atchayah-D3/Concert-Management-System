@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { AppRoutingModule } from "../app-routing.module";
 import { AddConcertService } from '../auto-refresh.service';
 import { ConcertService } from '../api/services';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +11,7 @@ import { ConcertService } from '../api/services';
 })
 export class NavbarComponent {
  private concertService = inject(ConcertService);
+  authService=inject(AuthService)
   concertCount = 0;
 
   ngOnInit() {

@@ -131,4 +131,5 @@ C:\Projects\WebApplication1\WebApplication1\obj\Debug\net10.0\refint\WebApplicat
 C:\Projects\WebApplication1\WebApplication1\obj\Debug\net10.0\WebApplication1.pdb
 C:\Projects\WebApplication1\WebApplication1\obj\Debug\net10.0\WebApplication1.genruntimeconfig.cache
 C:\Projects\WebApplication1\WebApplication1\obj\Debug\net10.0\ref\WebApplication1.dll
+C:\Projects\WebApplication1\WebApplication1\obj\Debug\net10.0\WebApplication1.sourcelink.json
 C:\Projects\WebApplication1\WebApplication1\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt

@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormGroup,FormControl,Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/auth.service';
+
 import { LoginServiceService } from 'src/app/login-service.service';
 @Component({
   selector: 'app-login',
@@ -12,6 +14,7 @@ export class LoginComponent {
   isLoggedIn:boolean|undefined=false;
   loginMessage:string='';
   returnUrl:string='';
+  authService=inject(AuthService)
 form=new FormGroup({
 userEmail:new FormControl('',[Validators.email,Validators.required]),
 password:new FormControl('',Validators.required)
@@ -19,7 +22,7 @@ password:new FormControl('',Validators.required)
 
 constructor(private loginService:LoginServiceService,
   private router:Router,
-  private route:ActivatedRoute
+  private route:ActivatedRoute,
 ){ }
 
 ngOnInit(){
@@ -33,6 +36,7 @@ handleLogin(){
      this.isLoggedIn=response.success;
       if(this.isLoggedIn){
         localStorage.setItem('token', response.token??'');
+        this.authService.setToken(response.token??'');
       const role:string|null=this.loginService.getUserRole();
       if(this.returnUrl)
         this.router.navigateByUrl(this.returnUrl);

@@ -1,0 +1,15 @@
+{
+  "roles": {
+    "CONCERT_CREATOR": [
+      {"action": "delete_concert", "resource": "concert"},
+      {"action": "update_concert", "resource": "concert"},
+      {"action": "create_concert", "resource": "concert"},
+      {"action": "view_concerts", "resource": "concert"}
+    ],
+    "AUDIENCE": [
+      {"action": "view_concerts", "resource": "concert"},
+      {"action": "create_booking", "resource": "booking"},
+      {"action": "view_bookings", "resource": "booking"}
+    ]
+  }
+}

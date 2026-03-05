@@ -7,7 +7,7 @@ import { BookingComponent } from './booking/booking.component';
 import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [ {path:'Concert',component:ConcertComponent},
-{path:'ConcertList',component:ConcertListComponent},
+{path:'ConcertList',component:ConcertListComponent,canActivate:[AuthGuard]},
 {path:'',component:HomeComponent},
 {path:'Booking',component:BookingComponent,canActivate:[AuthGuard]}
 ];
