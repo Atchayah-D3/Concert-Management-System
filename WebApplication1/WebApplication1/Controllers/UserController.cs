@@ -40,5 +40,11 @@ namespace WebApplication1.Controllers
                 });
             return Ok(response);
         }
+        [HttpGet]
+        public async Task<ActionResult<int>> GetUserId(string uuid)
+        {
+            int userId = await _userService.GetUserId(uuid);
+            return Ok(userId);
+        }
     }
 }

@@ -16,16 +16,16 @@ namespace WebApplication1.Services.ServiceImpl
         public User Login (User request)
         {
             var user = _userRepository.GetByEmail(request.Email);
-            if (user == null)
-                return null;
-            var result = _passwordHasher.VerifyHashedPassword(
-        user,
-        user.HashedPassword,
-        request.HashedPassword
-    );
+    //        if (user == null)
+    //            return null;
+    //        var result = _passwordHasher.VerifyHashedPassword(
+    //    user,
+    //    user.HashedPassword,
+    //    request.HashedPassword
+    //);
 
-            if (result == PasswordVerificationResult.Failed)
-                return null;
+    //        if (result == PasswordVerificationResult.Failed)
+    //            return null;
             return user;
         }
         public User Register(User request)

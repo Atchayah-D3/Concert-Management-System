@@ -2,13 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {jwtDecode} from 'jwt-decode';
 import { AuthService } from './api/services';
+import { OAuthService } from 'angular-oauth2-oidc';
 @Injectable({
   providedIn: 'root'
 })
 export class LoginServiceService {
 
 //url:string="https://localhost:7063/Auth/";
-constructor(private http:HttpClient, private authService:AuthService){ }
+constructor(private http:HttpClient, 
+  private authService:AuthService,
+private oauthService:OAuthService){ }
   
   login(value:any){
     const payload={
@@ -19,7 +22,7 @@ constructor(private http:HttpClient, private authService:AuthService){ }
   }
 
   getUserRole():string|null{
-    const token:any=localStorage.getItem('token');
+    const token = this.oauthService.getAccessToken();
     if(!token) return null;
     console.log(jwtDecode(token));
     const decode:any= jwtDecode(token);

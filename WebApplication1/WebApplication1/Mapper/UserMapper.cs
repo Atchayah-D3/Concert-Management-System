@@ -11,7 +11,7 @@ namespace WebApplication1.Mapper
             return new User
             {
                 UserName = dto.UserName,
-                HashedPassword = dto.Password,
+                //HashedPassword = dto.Password,
                 Email=dto.Email,
                 Role=dto.Role
             };

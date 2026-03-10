@@ -20,7 +20,7 @@ export class BookingComponent {
     this.concertService.concertGet().subscribe({
       next:(response)=>{
         this.concerts=response;
-        console.log(this.concerts)
+        
       },
       error:(err)=>{
         console.log(err)

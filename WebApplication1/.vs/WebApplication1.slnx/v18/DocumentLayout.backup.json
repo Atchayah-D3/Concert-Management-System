@@ -3,40 +3,60 @@
   "WorkspaceRootPath": "C:\\Projects\\WebApplication1\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\projects\\webapplication1\\webapplication1\\controllers\\concertcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\concertcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\projects\\webapplication1\\webapplication1\\controllers\\permissioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\permissioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\projects\\webapplication1\\webapplication1\\services\\serviceimpl\\opaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\services\\serviceimpl\\opaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\projects\\webapplication1\\webapplication1\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\projects\\webapplication1\\webapplication1\\services\\serviceimpl\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\services\\serviceimpl\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\projects\\webapplication1\\webapplication1\\dto\\response\\loginresdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\dto\\response\\loginresdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\projects\\webapplication1\\webapplication1\\mapper\\concertmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\mapper\\concertmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\projects\\webapplication1\\webapplication1\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\bookingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\projects\\webapplication1\\webapplication1\\dto\\response\\permissionresdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\dto\\response\\permissionresdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\projects\\webapplication1\\webapplication1\\models\\concert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\models\\concert.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\projects\\webapplication1\\webapplication1\\controllers\\concertcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\concertcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\projects\\webapplication1\\webapplication1\\middleware\\userprovisioningmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\middleware\\userprovisioningmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\projects\\webapplication1\\webapplication1\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\projects\\webapplication1\\webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\projects\\webapplication1\\webapplication1\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\projects\\webapplication1\\webapplication1\\services\\serviceimpl\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\services\\serviceimpl\\jwtservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\projects\\webapplication1\\webapplication1\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\services\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\projects\\webapplication1\\webapplication1\\services\\serviceimpl\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\services\\serviceimpl\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\projects\\webapplication1\\webapplication1\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|c:\\projects\\webapplication1\\webapplication1\\services\\serviceimpl\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1139E486-A36B-6B58-4965-3753D45010A4}|WebApplication1\\WebApplication1.csproj|solutionrelative:webapplication1\\services\\serviceimpl\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,55 +70,126 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "LoginResDto.cs",
-              "DocumentMoniker": "C:\\Projects\\WebApplication1\\WebApplication1\\DTO\\Response\\LoginResDto.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\DTO\\Response\\LoginResDto.cs",
-              "ToolTip": "C:\\Projects\\WebApplication1\\WebApplication1\\DTO\\Response\\LoginResDto.cs",
-              "RelativeToolTip": "WebApplication1\\DTO\\Response\\LoginResDto.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAlAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "UserProvisioningMiddleware.cs",
+              "DocumentMoniker": "C:\\Projects\\WebApplication1\\WebApplication1\\Middleware\\UserProvisioningMiddleware.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Middleware\\UserProvisioningMiddleware.cs",
+              "ToolTip": "C:\\Projects\\WebApplication1\\WebApplication1\\Middleware\\UserProvisioningMiddleware.cs",
+              "RelativeToolTip": "WebApplication1\\Middleware\\UserProvisioningMiddleware.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAYwA8AAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-04T11:02:30.355Z",
+              "WhenOpened": "2026-03-06T06:42:31.836Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "IUserService.cs",
+              "DocumentMoniker": "C:\\Projects\\WebApplication1\\WebApplication1\\Services\\IUserService.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Services\\IUserService.cs",
+              "ToolTip": "C:\\Projects\\WebApplication1\\WebApplication1\\Services\\IUserService.cs",
+              "RelativeToolTip": "WebApplication1\\Services\\IUserService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-06T04:07:00.498Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "C:\\Projects\\WebApplication1\\WebApplication1\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\UserController.cs",
+              "ToolTip": "C:\\Projects\\WebApplication1\\WebApplication1\\Controllers\\UserController.cs",
+              "RelativeToolTip": "WebApplication1\\Controllers\\UserController.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAjwC0AAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T17:24:02.15Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Projects\\WebApplication1\\WebApplication1\\Services\\ServiceImpl\\UserService.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Services\\ServiceImpl\\UserService.cs",
+              "ToolTip": "C:\\Projects\\WebApplication1\\WebApplication1\\Services\\ServiceImpl\\UserService.cs",
+              "RelativeToolTip": "WebApplication1\\Services\\ServiceImpl\\UserService.cs",
+              "ViewState": "AgIAACwAAAAAAAAAAAAswDYAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T17:12:16.568Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PermissionResDto.cs",
+              "DocumentMoniker": "C:\\Projects\\WebApplication1\\WebApplication1\\DTO\\Response\\PermissionResDto.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\DTO\\Response\\PermissionResDto.cs",
+              "ToolTip": "C:\\Projects\\WebApplication1\\WebApplication1\\DTO\\Response\\PermissionResDto.cs",
+              "RelativeToolTip": "WebApplication1\\DTO\\Response\\PermissionResDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T10:01:12.597Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ConcertMapper.cs",
-              "DocumentMoniker": "C:\\Projects\\WebApplication1\\WebApplication1\\Mapper\\ConcertMapper.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Mapper\\ConcertMapper.cs",
-              "ToolTip": "C:\\Projects\\WebApplication1\\WebApplication1\\Mapper\\ConcertMapper.cs",
-              "RelativeToolTip": "WebApplication1\\Mapper\\ConcertMapper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAABRAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "PermissionController.cs",
+              "DocumentMoniker": "C:\\Projects\\WebApplication1\\WebApplication1\\Controllers\\PermissionController.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\PermissionController.cs",
+              "ToolTip": "C:\\Projects\\WebApplication1\\WebApplication1\\Controllers\\PermissionController.cs*",
+              "RelativeToolTip": "WebApplication1\\Controllers\\PermissionController.cs*",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAWwBEAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-04T10:19:22.044Z",
+              "WhenOpened": "2026-03-05T09:56:20.551Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "JwtService.cs",
+              "DocumentMoniker": "C:\\Projects\\WebApplication1\\WebApplication1\\Services\\ServiceImpl\\JwtService.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Services\\ServiceImpl\\JwtService.cs",
+              "ToolTip": "C:\\Projects\\WebApplication1\\WebApplication1\\Services\\ServiceImpl\\JwtService.cs",
+              "RelativeToolTip": "WebApplication1\\Services\\ServiceImpl\\JwtService.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAjwBQAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T06:26:30.076Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Projects\\WebApplication1\\WebApplication1\\Program.cs",
+              "RelativeDocumentMoniker": "WebApplication1\\Program.cs",
+              "ToolTip": "C:\\Projects\\WebApplication1\\WebApplication1\\Program.cs",
+              "RelativeToolTip": "WebApplication1\\Program.cs",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAAAGMAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-05T06:15:06.95Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Concert.cs",
               "DocumentMoniker": "C:\\Projects\\WebApplication1\\WebApplication1\\Models\\Concert.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Models\\Concert.cs",
               "ToolTip": "C:\\Projects\\WebApplication1\\WebApplication1\\Models\\Concert.cs",
               "RelativeToolTip": "WebApplication1\\Models\\Concert.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-04T08:55:12.822Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 13,
               "Title": "AuthService.cs",
               "DocumentMoniker": "C:\\Projects\\WebApplication1\\WebApplication1\\Services\\ServiceImpl\\AuthService.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Services\\ServiceImpl\\AuthService.cs",
               "ToolTip": "C:\\Projects\\WebApplication1\\WebApplication1\\Services\\ServiceImpl\\AuthService.cs",
               "RelativeToolTip": "WebApplication1\\Services\\ServiceImpl\\AuthService.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAzwCEAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-04T07:13:59.485Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-04T07:13:59.485Z"
             },
             {
               "$type": "Document",
@@ -108,62 +199,47 @@
               "RelativeDocumentMoniker": "WebApplication1\\Services\\ServiceImpl\\OpaService.cs",
               "ToolTip": "C:\\Projects\\WebApplication1\\WebApplication1\\Services\\ServiceImpl\\OpaService.cs",
               "RelativeToolTip": "WebApplication1\\Services\\ServiceImpl\\OpaService.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAIwDgAAAArAAAAAAAAAA==",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAEcAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-03T09:19:37.695Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "ConcertController.cs",
               "DocumentMoniker": "C:\\Projects\\WebApplication1\\WebApplication1\\Controllers\\ConcertController.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Controllers\\ConcertController.cs",
               "ToolTip": "C:\\Projects\\WebApplication1\\WebApplication1\\Controllers\\ConcertController.cs",
               "RelativeToolTip": "WebApplication1\\Controllers\\ConcertController.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAuwE8AAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAkwGAAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-03T09:19:08.287Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "AuthController.cs",
               "DocumentMoniker": "C:\\Projects\\WebApplication1\\WebApplication1\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Controllers\\AuthController.cs",
               "ToolTip": "C:\\Projects\\WebApplication1\\WebApplication1\\Controllers\\AuthController.cs",
               "RelativeToolTip": "WebApplication1\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAYwD0AAAAxAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAgwDgAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-02T06:46:35.792Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-02T06:46:35.792Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Projects\\WebApplication1\\WebApplication1\\Models\\User.cs",
               "RelativeDocumentMoniker": "WebApplication1\\Models\\User.cs",
               "ToolTip": "C:\\Projects\\WebApplication1\\WebApplication1\\Models\\User.cs",
               "RelativeToolTip": "WebApplication1\\Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA5AAAAAAAAAA==",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwAkAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-02T06:32:39.256Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "BookingController.cs",
-              "DocumentMoniker": "C:\\Projects\\WebApplication1\\WebApplication1\\Controllers\\BookingController.cs",
-              "RelativeDocumentMoniker": "WebApplication1\\Controllers\\BookingController.cs",
-              "ToolTip": "C:\\Projects\\WebApplication1\\WebApplication1\\Controllers\\BookingController.cs",
-              "RelativeToolTip": "WebApplication1\\Controllers\\BookingController.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAIwDkAAABtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-27T06:55:01.457Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-02T06:32:39.256Z"
             }
           ]
         }

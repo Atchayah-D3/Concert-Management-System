@@ -10,5 +10,6 @@ namespace WebApplication1.Repository
         IEnumerable<User> GetAll();
         void Update(int userId, User user);
         bool Delete(int userId);
+        int GetUserId(string uuid);
     }
 }

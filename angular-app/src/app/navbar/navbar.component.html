@@ -1,8 +1,11 @@
 <nav class="navbar">
   <div class="nav-left">
     <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-    <a *ngIf="authService.can('create_concert','concert')" routerLink="/Concert" routerLinkActive="active">Concerts</a>
-    <a *ngIf="authService.can('create_booking','booking')" routerLink="/Booking" routerLinkActive="active">Booking</a>
+    
+    <a *ngIf="authService.canShowConcertTab$() |async" routerLink="/Concert" routerLinkActive="active">Concerts</a>
+    <a *ngIf="authService.canShowBookingTab$() |async" routerLink="/Booking" routerLinkActive="active">Booking</a>
+    <a *ngIf="authService.isLoggedIn()" (click)="authService.logout()">Logout</a>
+    <a *ngIf="!authService.isLoggedIn()" (click)="authService.login()">Login</a>
   </div>
 
   <div class="nav-right">

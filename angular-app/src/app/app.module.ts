@@ -2,7 +2,7 @@ import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { OAuthModule } from 'angular-oauth2-oidc';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserModuleModule } from './user-module/user-module.module';
@@ -17,7 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { AddConcertService } from './auto-refresh.service';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 
-import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
+//import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 
 // function initializeKeycloak(keycloak: KeycloakService) {
   
@@ -53,7 +53,8 @@ import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
     ReactiveFormsModule,
     HttpClientModule,
     ConfirmDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    OAuthModule.forRoot()
   ],
   providers: [ConfirmationService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }

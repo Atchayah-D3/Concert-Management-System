@@ -23,12 +23,19 @@ password:new FormControl('',Validators.required)
 constructor(private loginService:LoginServiceService,
   private router:Router,
   private route:ActivatedRoute,
+  private auth:AuthService
 ){ }
 
 ngOnInit(){
 this.returnUrl=this.route.snapshot.queryParams['returnUrl']||''
 }
+login(){
+  this.auth.login();
+}
 
+logout(){
+  this.auth.logout();
+}
 handleLogin(){
   this.loginService.login(this.form.value).subscribe({
 

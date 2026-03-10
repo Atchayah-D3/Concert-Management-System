@@ -48,5 +48,13 @@ namespace WebApplication1.Repository.RepositoryImpl
         {
             _dbContext.SaveChanges();
         }
+
+        public int GetUserId(string uuid)
+        {
+            return _dbContext.Users
+                .Where(u => u.UUID == uuid)
+                .Select(u => u.UserId)
+                .FirstOrDefault();
+        }
     }
 }

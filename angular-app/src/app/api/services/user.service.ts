@@ -24,6 +24,107 @@ export class UserService extends BaseService {
   }
 
   /**
+   * Path part for operation userGet
+   */
+  static readonly UserGetPath = '/User';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `userGet$Plain()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  userGet$Plain$Response(params?: {
+    uuid?: string;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
+
+    const rb = new RequestBuilder(this.rootUrl, UserService.UserGetPath, 'get');
+    if (params) {
+      rb.query('uuid', params.uuid, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: 'text/plain',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `userGet$Plain$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  userGet$Plain(params?: {
+    uuid?: string;
+  },
+  context?: HttpContext
+
+): Observable<number> {
+
+    return this.userGet$Plain$Response(params,context).pipe(
+      map((r: StrictHttpResponse<number>) => r.body as number)
+    );
+  }
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `userGet$Json()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  userGet$Json$Response(params?: {
+    uuid?: string;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<number>> {
+
+    const rb = new RequestBuilder(this.rootUrl, UserService.UserGetPath, 'get');
+    if (params) {
+      rb.query('uuid', params.uuid, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'text/json',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return (r as HttpResponse<any>).clone({ body: parseFloat(String((r as HttpResponse<any>).body)) }) as StrictHttpResponse<number>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `userGet$Json$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  userGet$Json(params?: {
+    uuid?: string;
+  },
+  context?: HttpContext
+
+): Observable<number> {
+
+    return this.userGet$Json$Response(params,context).pipe(
+      map((r: StrictHttpResponse<number>) => r.body as number)
+    );
+  }
+
+  /**
    * Path part for operation userPost
    */
   static readonly UserPostPath = '/User';

@@ -16,12 +16,13 @@ namespace WebApplication1.Services.ServiceImpl
         }
         public string HashPassword(User user)
         {
-            return _passwordHasher.HashPassword(user, user.HashedPassword);
+            return "";
+           // return _passwordHasher.HashPassword(user, user.HashedPassword);
         }
         public async Task<User> Create(User user)
         {
 
-            user.HashedPassword = HashPassword(user);
+          //  user.HashedPassword = HashPassword(user);
             await _userRepository.Add(user);
             return user;
         }
@@ -47,9 +48,13 @@ namespace WebApplication1.Services.ServiceImpl
             if (user == null)
                 return false;
             user.UserName = updateUser.UserName ?? user.UserName;
-            if (updateUser.HashedPassword != null)
-                user.HashedPassword = _passwordHasher.HashPassword(user, updateUser.HashedPassword);
+          //  if (updateUser.HashedPassword != null)
+            //    user.HashedPassword = _passwordHasher.HashPassword(user, updateUser.HashedPassword);
             return true;
+        }
+        public async Task<int> GetUserId(string uuid)
+        {
+            return _userRepository.GetUserId(uuid);
         }
     }
 }

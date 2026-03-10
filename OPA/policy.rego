@@ -11,7 +11,7 @@ allow if {
 }
 
 allow if {
-    input.action == "create_concert"
+    input.action in {"create_concert", "create_booking"}
     role := input.user.role
     permission := data.roles[role][_]
     permission.action == input.action

@@ -8,6 +8,7 @@ import { AuthService } from './services/auth.service';
 import { BookingService } from './services/booking.service';
 import { ConcertService } from './services/concert.service';
 import { ConcertSpecService } from './services/concert-spec.service';
+import { PermissionService } from './services/permission.service';
 import { UserService } from './services/user.service';
 
 /**
@@ -22,6 +23,7 @@ import { UserService } from './services/user.service';
     BookingService,
     ConcertService,
     ConcertSpecService,
+    PermissionService,
     UserService,
     ApiConfiguration
   ],

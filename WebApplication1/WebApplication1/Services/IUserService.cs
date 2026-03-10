@@ -10,5 +10,6 @@ namespace WebApplication1.Services
         bool Update(int userId, User user);
         string HashPassword(User user);
         bool Delete(int userId);
+        Task<int> GetUserId(string uuid);
     }
 }
