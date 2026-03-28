@@ -288,4 +288,54 @@ export class ConcertService extends BaseService {
     );
   }
 
+  /**
+   * Path part for operation concertUserGet
+   */
+  static readonly ConcertUserGetPath = '/Concert/User';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `concertUserGet()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  concertUserGet$Response(params?: {
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<Array<ConcertResDto>>> {
+
+    const rb = new RequestBuilder(this.rootUrl, ConcertService.ConcertUserGetPath, 'get');
+    if (params) {
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'json',
+      accept: 'application/json',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return r as StrictHttpResponse<Array<ConcertResDto>>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `concertUserGet$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  concertUserGet(params?: {
+  },
+  context?: HttpContext
+
+): Observable<Array<ConcertResDto>> {
+
+    return this.concertUserGet$Response(params,context).pipe(
+      map((r: StrictHttpResponse<Array<ConcertResDto>>) => r.body as Array<ConcertResDto>)
+    );
+  }
+
 }

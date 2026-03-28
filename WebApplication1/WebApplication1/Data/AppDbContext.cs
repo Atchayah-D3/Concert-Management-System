@@ -12,6 +12,8 @@ namespace WebApplication1.Data
         public DbSet<User> Users { get; set; }
         public DbSet<ConcertSpec> ConcertSpecs { get; set; }
         public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Hall> Halls { get; set; }
+        public DbSet<HallBooking> HallBookings { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Concert>()
@@ -38,6 +40,22 @@ namespace WebApplication1.Data
             modelBuilder.Entity<User>()
                 .HasIndex(u=>u.Email)
                 .IsUnique();
+            modelBuilder.Entity<Hall>()
+                .HasMany(h => h.Bookings)
+                .WithOne(hb => hb.Hall)
+                .HasForeignKey(h => h.HallId);
+            modelBuilder.Entity<Concert>()
+                .HasMany(c => c.HallBookings)
+                .WithOne(hb=>hb.Concert)
+                .HasForeignKey(hb=>hb.ConcertId);
+            modelBuilder.Entity<Hall>()
+                .HasOne(h => h.HallOwner)
+                .WithMany(u => u.Halls)
+                .HasForeignKey(h=> h.hallOwnerId);
+            modelBuilder.Entity<HallBooking>()
+                .HasOne(hb => hb.User)
+                .WithMany(u => u.HallBookings)
+                .HasForeignKey(hb => hb.UserId);
         }   
     }
 

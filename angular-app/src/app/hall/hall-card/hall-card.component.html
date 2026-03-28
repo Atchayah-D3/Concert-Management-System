@@ -1,0 +1,18 @@
+<div class="hall-card">
+      
+      <h3>{{ hall.hallName }}</h3>
+
+      <p><strong>Location:</strong> {{ hall.location}}</p>
+      <p><strong>Capacity(max)</strong> {{ hall.capacity }}</p>
+      <p><strong>Price(per hour):</strong> {{ hall.pricePerHour |currency:'INR' }}</p>
+      <div class="card-actions">
+        <button
+          class="action-btn"
+          *ngIf="hall.ownerId!== undefined && authService.canUpdateHall(hall.ownerId)"
+          (click)="onEdit(hall)">
+          Edit
+        </button>
+       <button class="action-btn"
+       (click)="onBooking(hall.hallId??0)">Book Hall</button>
+      </div>
+    </div>

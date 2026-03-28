@@ -1,0 +1,21 @@
+<div class="booking-container">
+  <form [formGroup]="bookingForm">
+
+    <h2>Hall Booking</h2>
+
+    <label>Hall ID</label>
+    <select formControlName="hallId">
+      <option *ngFor="let hall of halls" [value]="hall.hallId">{{hall.hallName}}</option>
+    </select>
+    <label>From Date & Time</label>
+    <input type="datetime-local" formControlName="fromDateTime">
+
+    <label>To Date & Time</label>
+    <input type="datetime-local" formControlName="toDateTime">
+
+    <button type="submit" [disabled]="bookingForm.invalid" (click)="OnSubmit()">
+      Book Hall
+    </button>
+
+  </form>
+</div>

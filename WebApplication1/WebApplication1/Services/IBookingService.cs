@@ -8,5 +8,6 @@ namespace WebApplication1.Services
     {
         Booking BookConcert(Booking booking);
         IEnumerable<BookingResDto> Get(int userId);
+        string CancelBooking(int bookingID);
     }
 }

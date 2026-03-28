@@ -1,14 +1,30 @@
 <nav class="navbar">
   <div class="nav-left">
+    <ng-container *ngIf="mode==='Concert';else hallNav ">
+    <a routerLink="/profile">Profile</a>
     <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-    
-    <a *ngIf="authService.canShowConcertTab$() |async" routerLink="/Concert" routerLinkActive="active">Concerts</a>
-    <a *ngIf="authService.canShowBookingTab$() |async" routerLink="/Booking" routerLinkActive="active">Booking</a>
+    <a *ngIf="authService.canShowConcertTab$() |async" routerLink="/concert" routerLinkActive="active">Concerts</a>
+    <a *ngIf="authService.canShowBookingTab$() |async" routerLink="/booking" routerLinkActive="active">Booking</a>
+    <a routerLink="/concertList" routerLinkActive="active">Concert List</a>
+  </ng-container>
+  <ng-template #hallNav>
+    <a routerLink="/profile">Profile</a>
+    <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+    <a routerLink="/hall/register" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Register</a>
+    <a  routerLink="/hall/search" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Search Hall</a>
+    <a routerLink="/hall/booking" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Hall Booking</a>
+  </ng-template>
+  </div>
+  <div>
+  <select #modeSelect (change)="setMode(modeSelect.value)">
+  <option value="Hall">Hall Booking</option>
+  <option value="Concert">Concert Booking</option>
+</select>
+  </div>
+  
+  <div class="nav-right">
+    <span class="count">Upcoming concerts: {{ concertCount |async}}</span>
     <a *ngIf="authService.isLoggedIn()" (click)="authService.logout()">Logout</a>
     <a *ngIf="!authService.isLoggedIn()" (click)="authService.login()">Login</a>
-  </div>
-
-  <div class="nav-right">
-    <span class="count">Upcoming concerts: {{ concertCount }}</span>
   </div>
 </nav>

@@ -1,4 +1,5 @@
-﻿using WebApplication1.DTO.Response;
+﻿using Npgsql;
+using WebApplication1.DTO.Response;
 using WebApplication1.Models;
 
 namespace WebApplication1.Repository
@@ -7,5 +8,7 @@ namespace WebApplication1.Repository
     {
         Booking BookConcert(Booking booking);
         IEnumerable<BookingResDto> Get(int userId);
+        bool Update();
+        Booking GetBooking(int bookingId);
     }
 }

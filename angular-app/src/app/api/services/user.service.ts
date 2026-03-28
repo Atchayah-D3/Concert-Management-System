@@ -35,7 +35,6 @@ export class UserService extends BaseService {
    * This method doesn't expect any request body.
    */
   userGet$Plain$Response(params?: {
-    uuid?: string;
   },
   context?: HttpContext
 
@@ -43,7 +42,6 @@ export class UserService extends BaseService {
 
     const rb = new RequestBuilder(this.rootUrl, UserService.UserGetPath, 'get');
     if (params) {
-      rb.query('uuid', params.uuid, {});
     }
 
     return this.http.request(rb.build({
@@ -65,7 +63,6 @@ export class UserService extends BaseService {
    * This method doesn't expect any request body.
    */
   userGet$Plain(params?: {
-    uuid?: string;
   },
   context?: HttpContext
 
@@ -83,7 +80,6 @@ export class UserService extends BaseService {
    * This method doesn't expect any request body.
    */
   userGet$Json$Response(params?: {
-    uuid?: string;
   },
   context?: HttpContext
 
@@ -91,7 +87,6 @@ export class UserService extends BaseService {
 
     const rb = new RequestBuilder(this.rootUrl, UserService.UserGetPath, 'get');
     if (params) {
-      rb.query('uuid', params.uuid, {});
     }
 
     return this.http.request(rb.build({
@@ -113,7 +108,6 @@ export class UserService extends BaseService {
    * This method doesn't expect any request body.
    */
   userGet$Json(params?: {
-    uuid?: string;
   },
   context?: HttpContext
 

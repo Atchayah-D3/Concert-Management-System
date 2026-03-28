@@ -1,0 +1,33 @@
+<div class="booking-container" *ngIf="booking">
+
+  <div class="booking-card">
+    <h2>Booking Details</h2>
+
+    <div class="row">
+      <span class="label">Booking ID:</span>
+      <span class="value">{{ booking.bookingId }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Status:</span>
+      <span class="value status">{{ booking.status==1?"CONFIRMED":
+      (booking.status==0?"WAITING":
+      (booking.status===2?"UNCONFIRMED":"CANCELLED")) }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Concert:</span>
+      <span class="value">{{ booking.concert?.concertName }}</span>
+    </div>
+
+    <div class="row">
+      <span class="label">Date & Time:</span>
+      <span class="value">
+        {{ booking.concert?.concertSpec?.date_Time | date:'medium' }}
+      </span>
+    </div>
+    <button class="cancel-btn" 
+    *ngIf="this.authService.canDeleteBooking(booking.userEmail??'') && booking.status!=3"
+    (click)="this.cancelBooking(booking.bookingId??0)"> Cancel</button>
+  </div>
+</div>

@@ -8,6 +8,8 @@ import { AuthService } from './services/auth.service';
 import { BookingService } from './services/booking.service';
 import { ConcertService } from './services/concert.service';
 import { ConcertSpecService } from './services/concert-spec.service';
+import { HallService } from './services/hall.service';
+import { HallBookingService } from './services/hall-booking.service';
 import { PermissionService } from './services/permission.service';
 import { UserService } from './services/user.service';
 
@@ -23,6 +25,8 @@ import { UserService } from './services/user.service';
     BookingService,
     ConcertService,
     ConcertSpecService,
+    HallService,
+    HallBookingService,
     PermissionService,
     UserService,
     ApiConfiguration

@@ -2,7 +2,7 @@
 {
     public enum BookingStatus
     {
-        WAITING,CONFIRMED,UNCONFIRMED
+        WAITING,CONFIRMED,UNCONFIRMED,CANCELLED
     }
     public class Booking
     {

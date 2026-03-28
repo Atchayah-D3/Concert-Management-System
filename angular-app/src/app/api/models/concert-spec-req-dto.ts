@@ -5,5 +5,4 @@ export interface ConcertSpecReqDto {
   concertId?: number;
   date_Time?: null | string;
   price?: null | number;
-  venue?: null | string;
 }

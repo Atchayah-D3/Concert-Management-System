@@ -8,5 +8,7 @@ namespace WebApplication1.DTO.Response
         public string UserName { get; set; } = null!;
        public required string Email { get; set; }
         public UserRole Role { get; set; } = UserRole.AUDIENCE;
+        public ICollection<BookingResDto>? Bookings { get; set; }
+        public ICollection<ConcertResDto>? Concerts { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
 using WebApplication1.DTO.Request;
 using WebApplication1.DTO.Response;
 using WebApplication1.Mapper;
@@ -12,9 +14,12 @@ namespace WebApplication1.Controllers
     public class UserController:ControllerBase
     {
         private readonly IUserService _userService;
-        public UserController(IUserService userService)
+        private readonly IMapper _mapper;
+        public UserController(IUserService userService,
+            IMapper mapper)
         {
             _userService = userService;
+            _mapper = mapper;
         }
         [HttpPost]
         public async Task<ActionResult<UserResDto>> Create(UserReqDto request)
@@ -32,18 +37,22 @@ namespace WebApplication1.Controllers
         [HttpGet("{userId}")]
         public ActionResult<UserResDto> Get(int userId)
         {
-            UserResDto response = UserMapper.ToResponse(_userService.Get(userId));
-            if (response == null)
-                return NotFound(new { 
-                Success=false,
-                Message=$"No user found with user id: {userId}"
-                });
+            User user = _userService.Get(userId);
+            if (user == null)
+                return NotFound(new
+                {
+                    Success = false,
+                    Message = $"No user found with user id: {userId}"
+                }); 
+          UserResDto response = _mapper.Map<UserResDto>(user);
+            Console.Write("Email"+response.Email);
             return Ok(response);
         }
         [HttpGet]
-        public async Task<ActionResult<int>> GetUserId(string uuid)
+        public async Task<ActionResult<int>> GetUserId()
         {
-            int userId = await _userService.GetUserId(uuid);
+            string UUID = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            int userId = await _userService.GetUserId(UUID);
             return Ok(userId);
         }
     }

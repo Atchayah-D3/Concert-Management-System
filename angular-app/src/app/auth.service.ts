@@ -1,7 +1,6 @@
 import { Inject, Injectable } from "@angular/core";
 import { authConfig } from "./auth.config";
 import { OAuthService } from "angular-oauth2-oidc";
-import { HttpClient } from "@angular/common/http";
 import { PermissionService } from "./api/services/permission.service";
 import { Permission } from "./api/models";
 import { UserService } from "./api/services";
@@ -15,13 +14,11 @@ export interface UserIdResponse {
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   
-  // BehaviorSubject emits null until permissions load, then emits the real value
   private permissions$ = new BehaviorSubject<Permission[] >([]);
   private userId: number | null = null;
-
+  private email:string=null!;
   constructor(
     private oauthService: OAuthService,
-    private http: HttpClient,
     private userService: UserService,
     private permissionService: PermissionService
   ) {
@@ -58,7 +55,7 @@ export class AuthService {
     const payload = JSON.parse(atob(token.split('.')[1]));
     const uuid = payload["sub"];
     const role = payload["role"];
-
+    this.email=payload["email"];
     if (uuid) {
       this.userService.userGet$Json({ uuid }).subscribe({
         next: (response: number) => { this.userId = response; },
@@ -68,19 +65,15 @@ export class AuthService {
 
     this.permissionService.permissionGet({ role }).subscribe({
       next: (response) => {
-        // Emit the loaded permissions — all subscribers instantly react
-        this.permissions$.next(response || []);
-         
+        this.permissions$.next(response || []);         
       },
       error: err => console.error(err)
     });
   }
 
-  // Synchronous check — still works for guards/logic (returns false until loaded)
   can(action: string, resource: string): boolean {
   const permissions = this.permissions$.getValue();
   if (!permissions) return false;
-
   return permissions.some(
     p => p.action === action && p.resource === resource
   );
@@ -107,9 +100,15 @@ canShowBookingTab$(): Observable<boolean> {
   canDeleteConcert(concertCreatorId: number): boolean {
     return this.can('delete_concert', 'concert') && this.userId === concertCreatorId;
   }
-
+canUpdateHall(ownerId:number):boolean{
+  return this.can('edit_hall','hall') && this.userId===ownerId;
+}
   canUpdateConcert(creatorId: number): boolean {
     
     return this.can('update_concert', 'concert') && this.userId === creatorId;
+  }
+  canDeleteBooking(userEmail:string):boolean{
+    const canCancel:boolean= this.can('cancel_booking','booking')
+    return canCancel && this.email===userEmail;
   }
 }

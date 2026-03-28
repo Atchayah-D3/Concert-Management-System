@@ -4,12 +4,23 @@
       {"action": "delete_concert", "resource": "concert"},
       {"action": "update_concert", "resource": "concert"},
       {"action": "create_concert", "resource": "concert"},
-      {"action": "view_concerts", "resource": "concert"}
+      {"action": "view_concerts", "resource": "concert"},
+      {"action": "create_booking", "resource": "booking"},
+{"action": "cancel_booking", "resource": "booking"}
     ],
     "audience": [
       {"action": "view_concerts", "resource": "concert"},
       {"action": "create_booking", "resource": "booking"},
-      {"action": "view_bookings", "resource": "booking"}
+      {"action": "view_bookings", "resource": "booking"},
+      {"action": "cancel_booking", "resource": "booking"}
+    ],
+"hall-owner": [
+      {"action": "register_hall", "resource": "hall"},
+      {"action": "create_booking", "resource": "booking"},
+      {"action": "view_bookings", "resource": "booking"},
+      {"action": "cancel_booking", "resource": "booking"},
+      {"action": "edit_hall", "resource":"hall"}
     ]
+
   }
 }

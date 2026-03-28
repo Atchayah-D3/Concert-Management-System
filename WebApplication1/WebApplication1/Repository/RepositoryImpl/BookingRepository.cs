@@ -1,4 +1,5 @@
 ﻿
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
 using WebApplication1.DTO.Response;
@@ -10,9 +11,12 @@ namespace WebApplication1.Repository.RepositoryImpl
     public class BookingRepository : IBookingRepository
     {
         private readonly AppDbContext _dbContext;
-        public BookingRepository(AppDbContext dbContext)
+        private readonly IMapper _mapper;
+        public BookingRepository(AppDbContext dbContext,
+            IMapper mapper)
         {
             _dbContext = dbContext;
+            _mapper = mapper;
         }
         public Booking BookConcert(Booking booking)
         {
@@ -35,7 +39,7 @@ namespace WebApplication1.Repository.RepositoryImpl
                     {
                         ConcertId = b.Concert.ConcertId,
                         ConcertName = b.Concert.ConcertName,
-                        ConcertSpec =ConcertSpecMapper.ToResponse(b.Concert.ConcertSpecs)
+                        ConcertSpec =_mapper.Map<ConcertSpecDto>(b.Concert.ConcertSpecs)
                     },
                     UserName=b.Audience.UserName,
                     UserEmail=b.Audience.Email,
@@ -43,6 +47,20 @@ namespace WebApplication1.Repository.RepositoryImpl
                     BookingTime=b.BookingTime
                 })
                 .ToList();
+        }
+        public Booking GetBooking(int bookingId)
+        {
+            return _dbContext.Bookings
+                .Include(b=>b.Concert)
+                .ThenInclude(c=>c.ConcertSpecs!)
+                .Include(b=>b.Audience!)
+                 .FirstOrDefault(b => b.BookingId == bookingId);
+        }
+        public bool Update()
+        {
+            _dbContext.SaveChanges();
+            return true;
+
         }
     }
 }

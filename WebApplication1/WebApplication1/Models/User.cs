@@ -2,7 +2,7 @@
 {
     public enum UserRole
     {
-        AUDIENCE, CONCERT_CREATOR,ARTIST
+        AUDIENCE, CONCERT_CREATOR,ARTIST,HALL_OWNER
     }
     public class User
     {
@@ -11,9 +11,10 @@
         public string? UserName { get; set; } = null!;
         public UserRole Role { get; set; } = UserRole.AUDIENCE;
         public string Email { get; set; } = null!;
-        //public string HashedPassword { get; set; } = null!;
         public ICollection<Booking>? Bookings { get; set; }
         public ICollection<Concert>? Concerts { get; set; }
+        public ICollection<Hall>? Halls { get; set; }
+        public ICollection<HallBooking> HallBookings { get; set; }
 
     }
 }

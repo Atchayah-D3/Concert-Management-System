@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using WebApplication1.DTO.Request;
 using WebApplication1.DTO.Response;
 using WebApplication1.Mapper;
@@ -12,19 +13,21 @@ namespace WebApplication1.Controllers
     [Route("[controller]/")]
     public class ConcertSpecController : ControllerBase
     {
-        private  IConcertSpecService _concertSpecService;
-        public ConcertSpecController(IConcertSpecService concertSpecService)
+        private readonly IConcertSpecService _concertSpecService;
+        private readonly IMapper _mapper;
+        public ConcertSpecController(IConcertSpecService concertSpecService,
+            IMapper mapper)
         {
+            _mapper = mapper;
             _concertSpecService = concertSpecService;
         }
         [HttpPost]
-        public ActionResult<ConcertSpecResDto> Create(ConcertSpecReqDto request)
+        public ActionResult<ConcertSpecDto> Create(ConcertSpecReqDto request)
         {
             if (ModelState.IsValid)
             {
-                ConcertSpec concertSpec = ConcertSpecMapper.ToEntity(request);
-                ConcertSpecResDto response=ConcertSpecMapper
-                    .ToResponse(_concertSpecService.Create(concertSpec));
+                ConcertSpec concertSpec = _mapper.Map<ConcertSpec>(request);
+                ConcertSpecDto response=_mapper.Map<ConcertSpecDto>(concertSpec);
                 return CreatedAtAction(nameof(Get),
                     new
                     {
@@ -37,7 +40,7 @@ namespace WebApplication1.Controllers
 
         }
         [HttpGet("{concertSpecId}")]
-        public ActionResult<ConcertSpecResDto> Get(int concertSpecId)
+        public ActionResult<ConcertSpecDto> Get(int concertSpecId)
         {
             ConcertSpec concertSpec = _concertSpecService.Get(concertSpecId);
             if (concertSpec == null)
@@ -56,7 +59,7 @@ namespace WebApplication1.Controllers
         [HttpPut("{concertSpecId}")]
         public ActionResult Update(int concertSpecId,ConcertSpecReqDto request)
         {
-            ConcertSpec concertSpec = ConcertSpecMapper.ToEntity(request);
+            ConcertSpec concertSpec = _mapper.Map<ConcertSpec>(request);
             if (_concertSpecService.Update(concertSpecId, concertSpec))
             {
                 return NoContent();

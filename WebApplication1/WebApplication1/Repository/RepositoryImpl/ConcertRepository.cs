@@ -30,6 +30,8 @@ namespace WebApplication1.Repository.RepositoryImpl
         {
             return _dbContext.Concerts
                 .Include(c=>c.ConcertSpecs)
+                .Include(c=>c.HallBookings)
+                .ThenInclude(hb=>hb.Hall)
                 .ToList();
         }
 
@@ -37,10 +39,20 @@ namespace WebApplication1.Repository.RepositoryImpl
         {
             Concert? concert = _dbContext.Concerts
                 .Include(c=>c.ConcertSpecs)
+                .Include(c=>c.Bookings)
+                .Include(c=>c.HallBookings)
                 .FirstOrDefault(c=>c.ConcertId==concertId);
             return concert;
         }
+        public IEnumerable<Concert> GetByUserId(int userId)
+        {
+            return _dbContext.Concerts
+                .Include(c => c.ConcertSpecs)
+                .Include(c => c.Bookings)
+                .Include(c => c.HallBookings)
+                .Where(c=>c.CreatorId==userId);
 
+        }
         public void Update()
         {
           _dbContext.SaveChanges();

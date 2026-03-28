@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Threading.Tasks;
 using WebApplication1.Data;
 using WebApplication1.Models;
 
@@ -31,9 +30,17 @@ namespace WebApplication1.Repository.RepositoryImpl
             return true;
         }
 
-        public User Get(int userId)
+        public User? Get(int userId)
         {
-            return _dbContext.Users.Find(userId);
+            return _dbContext.Users                
+                 .Include(u=>u.Bookings!)
+                 .ThenInclude(b=>b.Concert)
+                 .ThenInclude(c=>c.ConcertSpecs)                 
+                 .Include(u => u.Bookings!)
+                 .ThenInclude(b => b.Concert)
+                 .ThenInclude(c => c.HallBookings)
+                 .Include(u=>u.Concerts)
+                 .FirstOrDefault(u => u.UserId == userId);
         }
         public User GetByEmail(string email)
         {

@@ -1,0 +1,15 @@
+<input type="search">
+<div class="hall-page">
+<div class="hall-list" *ngFor="let hall of this.hallList; trackBy: trackById">
+    <app-hall-card [hall]="hall"
+    (edit)="editHall($event)"
+    (book)="bookHall($event)"></app-hall-card>
+</div>
+<div class="modal-overlay" *ngIf="this.selectedHall">
+    <div class="modal-content">
+        <app-hall-form *ngIf="this.selectedHall"
+        [selectedHall]="selectedHall"></app-hall-form>
+    </div>
+</div>
+
+</div>

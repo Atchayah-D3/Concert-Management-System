@@ -14,28 +14,11 @@ import { BookingComponent } from './booking/booking.component';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmationService } from 'primeng/api';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-//import { AddConcertService } from './auto-refresh.service';
+import { CurrencyPipe, DatePipe } from '@angular/common';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
-
-//import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
-
-// function initializeKeycloak(keycloak: KeycloakService) {
-  
-//   return () =>                           
-//     keycloak.init({
-//       config: {
-//         url: 'http://localhost:8080',
-//         realm: 'ConcertRealm',
-//         clientId: 'concert-frontend'
-//       },
-//       initOptions: {
-//         onLoad: 'login-required',
-//         checkLoginIframe: false,
-//         pkceMethod: 'S256',
-//         redirectUri: window.location.origin
-//       }
-//     });
-// }
+import { ProfileComponent } from './profile/profile.component';
+import { ConcertCardComponent } from './concert-card/concert-card.component';
+import { BookingCardComponent } from './booking-card/booking-card.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +28,9 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     NavbarComponent,
     HomeComponent,
     BookingComponent,
+    ProfileComponent,
+    ConcertCardComponent,
+    BookingCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,6 +40,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     HttpClientModule,
     ConfirmDialogModule,
     BrowserAnimationsModule,
+    CurrencyPipe,
+    DatePipe,
     OAuthModule.forRoot()
   ],
   providers: [ConfirmationService,

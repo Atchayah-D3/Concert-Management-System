@@ -14,7 +14,7 @@ namespace WebApplication1.Services.ServiceImpl
         {
             return _concertSpecRepo.Add(concertSpec);
         }
-
+        
         public bool Delete(int concertSpecId)
         {
             return _concertSpecRepo.Delete(concertSpecId);
@@ -31,7 +31,6 @@ namespace WebApplication1.Services.ServiceImpl
             if (concertSpec == null)
                 return false;
             concertSpec.Artist = updateConcertSpec.Artist ?? concertSpec.Artist;
-            concertSpec.Venue = updateConcertSpec.Venue ?? concertSpec.Venue;
             concertSpec.Price = updateConcertSpec.Price ?? concertSpec.Price;
             concertSpec.Date_Time = updateConcertSpec.Date_Time ?? concertSpec.Date_Time;
             return true;

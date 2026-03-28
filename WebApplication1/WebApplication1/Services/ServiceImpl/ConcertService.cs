@@ -7,9 +7,12 @@ namespace WebApplication1.Services.ServiceImpl
     public class ConcertService: IConcertService
     {
         private readonly IConcertRepository _concertRepo;
-        public ConcertService(IConcertRepository concertRepository)
+        private readonly IConcertSpecService _concertSpecService;
+        public ConcertService(IConcertRepository concertRepository,
+            IConcertSpecService concertSpecService)
         {
             _concertRepo = concertRepository;
+            _concertSpecService = concertSpecService;
         }
         public  Concert AddConcert(Concert concert)
         {
@@ -26,6 +29,11 @@ namespace WebApplication1.Services.ServiceImpl
         {
             return _concertRepo.GetAll();
         }
+        public IEnumerable<Concert> FetchUserConcert(int userId)
+        {
+            return _concertRepo.GetByUserId(userId);
+        }
+
         public bool UpdateConcert(int id, Concert updatedConcert)
         {
             Concert concert = GetConcert(id);
@@ -35,11 +43,7 @@ namespace WebApplication1.Services.ServiceImpl
             concert.ConcertName = updatedConcert.ConcertName ?? concert.ConcertName;
             if ( updatedConcertSpec!= null)
             {
-                ConcertSpec oldConcertSpec = concert.ConcertSpecs;
-                oldConcertSpec.Artist = updatedConcertSpec.Artist ?? oldConcertSpec.Artist;
-                oldConcertSpec.Venue = updatedConcertSpec.Venue ?? oldConcertSpec.Venue;
-                oldConcertSpec.Price = updatedConcertSpec.Price ?? oldConcertSpec.Price;
-                oldConcertSpec.Date_Time = updatedConcertSpec.Date_Time ?? oldConcertSpec.Date_Time;
+                _concertSpecService.Update(concert.ConcertSpecs.ConcertSpecId, updatedConcertSpec);
             }
             _concertRepo.Update();
             return true;

@@ -7,6 +7,7 @@ namespace WebApplication1.Services
         Concert AddConcert(Concert concert);
         Concert GetConcert(int concertId);
         IEnumerable<Concert> GetAllConcert();
+        IEnumerable<Concert> FetchUserConcert(int userId);
         bool UpdateConcert(int concertId, Concert updatedConcert);
         bool DeleteConcert(int concertId);
     }

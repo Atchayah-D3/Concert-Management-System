@@ -185,6 +185,29 @@
         }
       }
     },
+    "/Booking/{id}": {
+      "patch": {
+        "tags": [
+          "Booking"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/Concert": {
       "post": {
         "tags": [
@@ -344,6 +367,28 @@
         }
       }
     },
+    "/Concert/User": {
+      "get": {
+        "tags": [
+          "Concert"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ConcertResDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/ConcertSpec": {
       "post": {
         "tags": [
@@ -374,17 +419,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConcertSpecResDto"
+                  "$ref": "#/components/schemas/ConcertSpecDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConcertSpecResDto"
+                  "$ref": "#/components/schemas/ConcertSpecDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConcertSpecResDto"
+                  "$ref": "#/components/schemas/ConcertSpecDto"
                 }
               }
             }
@@ -414,17 +459,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConcertSpecResDto"
+                  "$ref": "#/components/schemas/ConcertSpecDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConcertSpecResDto"
+                  "$ref": "#/components/schemas/ConcertSpecDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ConcertSpecResDto"
+                  "$ref": "#/components/schemas/ConcertSpecDto"
                 }
               }
             }
@@ -489,6 +534,326 @@
         "responses": {
           "200": {
             "description": "OK"
+          }
+        }
+      }
+    },
+    "/Hall": {
+      "post": {
+        "tags": [
+          "Hall"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HallDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HallDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/HallDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HallDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HallDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HallDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Hall"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/HallDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/HallDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/HallDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Hall/{id}": {
+      "get": {
+        "tags": [
+          "Hall"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HallDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HallDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HallDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Hall"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HallDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HallDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/HallDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HallDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HallDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HallDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/HallBooking/{hallId}": {
+      "post": {
+        "tags": [
+          "HallBooking"
+        ],
+        "parameters": [
+          {
+            "name": "hallId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HallBookingDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HallBookingDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/HallBookingDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HallBookingDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HallBookingDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HallBookingDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/HallBooking/hall/{hallId}": {
+      "get": {
+        "tags": [
+          "HallBooking"
+        ],
+        "parameters": [
+          {
+            "name": "hallId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HallBookingDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HallBookingDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HallBookingDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/HallBooking/{bookingId}": {
+      "delete": {
+        "tags": [
+          "HallBooking"
+        ],
+        "parameters": [
+          {
+            "name": "bookingId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/HallBookingDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HallBookingDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HallBookingDto"
+                }
+              }
+            }
           }
         }
       }
@@ -574,15 +939,6 @@
       "get": {
         "tags": [
           "User"
-        ],
-        "parameters": [
-          {
-            "name": "uuid",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
         ],
         "responses": {
           "200": {
@@ -696,7 +1052,8 @@
         "enum": [
           0,
           1,
-          2
+          2,
+          3
         ],
         "type": "integer",
         "format": "int32"
@@ -713,6 +1070,13 @@
           },
           "concertSpec": {
             "$ref": "#/components/schemas/ConcertSpecReqDto"
+          },
+          "customHall": {
+            "type": "string",
+            "nullable": true
+          },
+          "hallBookingReq": {
+            "$ref": "#/components/schemas/HallBookingReqDto"
           }
         },
         "additionalProperties": false
@@ -732,9 +1096,52 @@
             "nullable": true
           },
           "concertSpec": {
-            "$ref": "#/components/schemas/ConcertSpecResDto"
+            "$ref": "#/components/schemas/ConcertSpecDto"
           },
           "creatorId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hallName": {
+            "type": "string",
+            "nullable": true
+          },
+          "customHall": {
+            "type": "string",
+            "nullable": true
+          },
+          "hallBookings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HallBookingDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConcertSpecDto": {
+        "type": "object",
+        "properties": {
+          "concertSpecId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "artist": {
+            "type": "string",
+            "nullable": true
+          },
+          "date_Time": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "price": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "concertId": {
             "type": "integer",
             "format": "int32"
           }
@@ -745,10 +1152,6 @@
         "type": "object",
         "properties": {
           "artist": {
-            "type": "string",
-            "nullable": true
-          },
-          "venue": {
             "type": "string",
             "nullable": true
           },
@@ -771,32 +1174,94 @@
         },
         "additionalProperties": false
       },
-      "ConcertSpecResDto": {
+      "HallBookingDto": {
         "type": "object",
         "properties": {
-          "concertSpecId": {
+          "hallBookingId": {
             "type": "integer",
-            "format": "int32"
-          },
-          "artist": {
-            "type": "string",
+            "format": "int32",
             "nullable": true
           },
-          "venue": {
+          "fromDateTime": {
             "type": "string",
-            "nullable": true
+            "format": "date-time"
           },
-          "date_Time": {
+          "toDateTime": {
             "type": "string",
-            "format": "date-time",
-            "nullable": true
+            "format": "date-time"
           },
           "price": {
             "type": "number",
             "format": "double",
             "nullable": true
           },
+          "status": {
+            "$ref": "#/components/schemas/BookingStatus"
+          },
+          "userEmail": {
+            "type": "string",
+            "nullable": true
+          },
+          "hallName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "HallBookingReqDto": {
+        "type": "object",
+        "properties": {
+          "hallId": {
+            "type": "integer",
+            "format": "int32"
+          },
           "concertId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fromDateTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "toDateTime": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "HallDto": {
+        "type": "object",
+        "properties": {
+          "hallId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "hallName": {
+            "type": "string",
+            "nullable": true
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "capacity": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "bookings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HallBookingDto"
+            },
+            "nullable": true
+          },
+          "pricePerHour": {
+            "type": "number",
+            "format": "double"
+          },
+          "ownerId": {
             "type": "integer",
             "format": "int32"
           }
@@ -886,6 +1351,20 @@
           },
           "role": {
             "$ref": "#/components/schemas/UserRole"
+          },
+          "bookings": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BookingResDto"
+            },
+            "nullable": true
+          },
+          "concerts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConcertResDto"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -894,7 +1373,8 @@
         "enum": [
           0,
           1,
-          2
+          2,
+          3
         ],
         "type": "integer",
         "format": "int32"
@@ -913,6 +1393,12 @@
     },
     {
       "name": "ConcertSpec"
+    },
+    {
+      "name": "Hall"
+    },
+    {
+      "name": "HallBooking"
     },
     {
       "name": "Permission"

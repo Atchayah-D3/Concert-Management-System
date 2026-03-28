@@ -1,0 +1,23 @@
+<form [formGroup]="HallForm">
+  Hall Name
+  <input formControlName="hallName">
+   <Details>
+    <br><p>Fill in Hall Details</p>
+  <div>
+Location <input formControlName="location"><br>
+ Capacity(Max) <input type="number"formControlName="capacity"><br>
+  Price Per Hour(Rs)<input formControlName="pph"><br>
+  </div>
+
+</Details>
+
+  <button type="submit"  [disabled]="HallForm.invalid"
+   *ngIf="!this.selectedHall" 
+   (click)="addHall()">Add concert</button>
+   
+   <button type="submit" *ngIf="this.selectedHall" 
+   [disabled]="HallForm.invalid"
+   (click)="updateHall()">
+    Save Changes</button>
+</form>
+

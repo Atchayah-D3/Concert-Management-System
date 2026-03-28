@@ -6,6 +6,7 @@ namespace WebApplication1.Repository
         Concert Add(Concert concert);
         Concert GetById(int concertId);
         IEnumerable<Concert> GetAll();
+        IEnumerable<Concert> GetByUserId(int userId);
         bool Delete(int concertId);
         void Update();
 

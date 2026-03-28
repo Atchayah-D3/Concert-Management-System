@@ -9,8 +9,8 @@ import { RequestBuilder } from '../request-builder';
 import { Observable } from 'rxjs';
 import { map, filter } from 'rxjs/operators';
 
+import { ConcertSpecDto } from '../models/concert-spec-dto';
 import { ConcertSpecReqDto } from '../models/concert-spec-req-dto';
-import { ConcertSpecResDto } from '../models/concert-spec-res-dto';
 
 @Injectable({
   providedIn: 'root',
@@ -39,7 +39,7 @@ export class ConcertSpecService extends BaseService {
   },
   context?: HttpContext
 
-): Observable<StrictHttpResponse<ConcertSpecResDto>> {
+): Observable<StrictHttpResponse<ConcertSpecDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, ConcertSpecService.ConcertSpecPostPath, 'post');
     if (params) {
@@ -53,7 +53,7 @@ export class ConcertSpecService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<ConcertSpecResDto>;
+        return r as StrictHttpResponse<ConcertSpecDto>;
       })
     );
   }
@@ -69,10 +69,10 @@ export class ConcertSpecService extends BaseService {
   },
   context?: HttpContext
 
-): Observable<ConcertSpecResDto> {
+): Observable<ConcertSpecDto> {
 
     return this.concertSpecPost$Plain$Response(params,context).pipe(
-      map((r: StrictHttpResponse<ConcertSpecResDto>) => r.body as ConcertSpecResDto)
+      map((r: StrictHttpResponse<ConcertSpecDto>) => r.body as ConcertSpecDto)
     );
   }
 
@@ -87,7 +87,7 @@ export class ConcertSpecService extends BaseService {
   },
   context?: HttpContext
 
-): Observable<StrictHttpResponse<ConcertSpecResDto>> {
+): Observable<StrictHttpResponse<ConcertSpecDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, ConcertSpecService.ConcertSpecPostPath, 'post');
     if (params) {
@@ -101,7 +101,7 @@ export class ConcertSpecService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<ConcertSpecResDto>;
+        return r as StrictHttpResponse<ConcertSpecDto>;
       })
     );
   }
@@ -117,10 +117,10 @@ export class ConcertSpecService extends BaseService {
   },
   context?: HttpContext
 
-): Observable<ConcertSpecResDto> {
+): Observable<ConcertSpecDto> {
 
     return this.concertSpecPost$Json$Response(params,context).pipe(
-      map((r: StrictHttpResponse<ConcertSpecResDto>) => r.body as ConcertSpecResDto)
+      map((r: StrictHttpResponse<ConcertSpecDto>) => r.body as ConcertSpecDto)
     );
   }
 
@@ -140,7 +140,7 @@ export class ConcertSpecService extends BaseService {
   },
   context?: HttpContext
 
-): Observable<StrictHttpResponse<ConcertSpecResDto>> {
+): Observable<StrictHttpResponse<ConcertSpecDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, ConcertSpecService.ConcertSpecConcertSpecIdGetPath, 'get');
     if (params) {
@@ -154,7 +154,7 @@ export class ConcertSpecService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<ConcertSpecResDto>;
+        return r as StrictHttpResponse<ConcertSpecDto>;
       })
     );
   }
@@ -170,10 +170,10 @@ export class ConcertSpecService extends BaseService {
   },
   context?: HttpContext
 
-): Observable<ConcertSpecResDto> {
+): Observable<ConcertSpecDto> {
 
     return this.concertSpecConcertSpecIdGet$Plain$Response(params,context).pipe(
-      map((r: StrictHttpResponse<ConcertSpecResDto>) => r.body as ConcertSpecResDto)
+      map((r: StrictHttpResponse<ConcertSpecDto>) => r.body as ConcertSpecDto)
     );
   }
 
@@ -188,7 +188,7 @@ export class ConcertSpecService extends BaseService {
   },
   context?: HttpContext
 
-): Observable<StrictHttpResponse<ConcertSpecResDto>> {
+): Observable<StrictHttpResponse<ConcertSpecDto>> {
 
     const rb = new RequestBuilder(this.rootUrl, ConcertSpecService.ConcertSpecConcertSpecIdGetPath, 'get');
     if (params) {
@@ -202,7 +202,7 @@ export class ConcertSpecService extends BaseService {
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return r as StrictHttpResponse<ConcertSpecResDto>;
+        return r as StrictHttpResponse<ConcertSpecDto>;
       })
     );
   }
@@ -218,10 +218,10 @@ export class ConcertSpecService extends BaseService {
   },
   context?: HttpContext
 
-): Observable<ConcertSpecResDto> {
+): Observable<ConcertSpecDto> {
 
     return this.concertSpecConcertSpecIdGet$Json$Response(params,context).pipe(
-      map((r: StrictHttpResponse<ConcertSpecResDto>) => r.body as ConcertSpecResDto)
+      map((r: StrictHttpResponse<ConcertSpecDto>) => r.body as ConcertSpecDto)
     );
   }
 

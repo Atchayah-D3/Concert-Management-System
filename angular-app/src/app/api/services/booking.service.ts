@@ -219,4 +219,57 @@ export class BookingService extends BaseService {
     );
   }
 
+  /**
+   * Path part for operation bookingIdPatch
+   */
+  static readonly BookingIdPatchPath = '/Booking/{id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `bookingIdPatch()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  bookingIdPatch$Response(params: {
+    id: number;
+  },
+  context?: HttpContext
+
+): Observable<StrictHttpResponse<void>> {
+
+    const rb = new RequestBuilder(this.rootUrl, BookingService.BookingIdPatchPath, 'patch');
+    if (params) {
+      rb.path('id', params.id, {});
+    }
+
+    return this.http.request(rb.build({
+      responseType: 'text',
+      accept: '*/*',
+      context: context
+    })).pipe(
+      filter((r: any) => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
+      })
+    );
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `bookingIdPatch$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  bookingIdPatch(params: {
+    id: number;
+  },
+  context?: HttpContext
+
+): Observable<void> {
+
+    return this.bookingIdPatch$Response(params,context).pipe(
+      map((r: StrictHttpResponse<void>) => r.body as void)
+    );
+  }
+
 }

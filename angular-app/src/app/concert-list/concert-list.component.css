@@ -17,57 +17,37 @@
   gap: 25px;
 }
 
-.concert-card {
-  width: 260px;
-  padding: 20px;
-  background: white;
-  border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-  transition: transform 0.2s ease;
-}
-
-.concert-card:hover {
-  transform: translateY(-4px);
-}
-
-.concert-card h3 {
-  margin-bottom: 10px;
-  color: #1e1e2f;
-}
-
-.concert-card p {
-  margin: 6px 0;
-  font-size: 14px;
-}
-
-.card-actions {
-  margin-top: 15px;
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
   display: flex;
-  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
-.delete-btn {
-  background: #ff4d4f;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  color: white;
-  cursor: pointer;
+.modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  animation: modalFade 0.25s ease;
 }
 
-.update-btn {
-  background: #6c63ff;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  color: white;
-  cursor: pointer;
-}
-
-.delete-btn:hover {
-  background: #d9363e;
-}
-
-.update-btn:hover {
-  background: #574fd6;
+@keyframes modalFade {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

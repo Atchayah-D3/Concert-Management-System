@@ -1,0 +1,23 @@
+<div class="concert-card">
+      
+      <h3>{{ this.concert?.concertName }}</h3>
+
+      <p><strong>Artist:</strong> {{ concert?.concertSpec?.artist }}</p>
+      <p><strong>Date:</strong> {{ concert?.concertSpec?.date_Time }}</p>
+      <p><strong>Price:</strong> {{ concert?.concertSpec?.price |currency:'INR' }}</p>
+      <p><strong>Venue:</strong> {{ concert?.customHall || concert?.hallBookings?.at(0)?.hallName}}</p>
+      <div class="card-actions">
+        <button
+          class="edit-btn"
+          *ngIf="concert?.creatorId !== undefined && authService.canUpdateConcert(concert?.creatorId??0)"
+          (click)="OnEdit(concert?.concertId??0)">
+          Edit
+        </button>
+        <button
+          class="delete-btn"
+          *ngIf="concert?.creatorId !== undefined && authService.canDeleteConcert(concert?.creatorId??0)"
+          (click)="OnDelete(concert?.concertId??0)">
+          Delete
+        </button>
+      </div>
+    </div>

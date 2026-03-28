@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using AutoMapper;
 using WebApplication1.Data;
 using WebApplication1.Middleware;
 using WebApplication1.Models;
@@ -10,6 +11,7 @@ using WebApplication1.Repository;
 using WebApplication1.Repository.RepositoryImpl;
 using WebApplication1.Services;
 using WebApplication1.Services.ServiceImpl;
+using WebApplication1.Mapper;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(
@@ -29,7 +31,11 @@ builder.Services.AddScoped<IBookingRepository, BookingRepository>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IJwtService, JwtService>();
-
+builder.Services.AddScoped<IHallService, HallService>();
+builder.Services.AddScoped<IHallRepository, HallRepository>();
+builder.Services.AddScoped<IHallBookingService, HallBookingService>();
+builder.Services.AddScoped<IHallBookingRepository, HallBookingRepository>();
+builder.Services.AddAutoMapper(typeof(AutoProfileMapper));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

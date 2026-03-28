@@ -4,11 +4,34 @@
    <Details>
     <br><p>Fill in Concert Details</p>
   <div formGroupName="concertSpec">
- Date <input type="date" formControlName="date"><br>
+ Date <input type="datetime-local" formControlName="date"><br>
  Artist <input formControlName="artist"><br>
-  Price <input formControlName="price">
-  </div></Details>
+  Price <input formControlName="price"><br>
+  </div>
+  Do you want to book hall? <br>
+  <input type="radio" name="bookHall" formControlName="bookHall" [value]="true"> Yes  
+  <input type="radio" name="bookHall" formControlName="bookHall" [value]="false"> No<br>
+  <div  *ngIf="concertForm.get('bookHall')?.value; else customHall">
+  Hall Name <select formControlName="hallId">
+  <option *ngFor="let hall of halls" [value]="hall.hallId">{{hall.hallName}}</option>
+  </select>
+<br>
+ Book Hall From <input type="datetime-local" formControlName="fromDate"> <br>
+ Book Hall To <input type="datetime-local" formControlName="toDate">
+</div>
+<ng-template #customHall>
+  Venue <input formControlName="customHall">
+</ng-template>
+
+</Details>
+
   <button type="submit"  [disabled]="concertForm.invalid"
+  *ngIf="!this.currentConcert"
    (click)="sendConcert()">Add concert</button>
+   
+   <button type="submit" *ngIf="this.currentConcert" 
+   [disabled]="concertForm.invalid"
+   (click)="update()">
+    Save Changes</button>
 </form>
-<app-concert-list></app-concert-list>
+<span *ngIf="this.message">{{message}}</span>

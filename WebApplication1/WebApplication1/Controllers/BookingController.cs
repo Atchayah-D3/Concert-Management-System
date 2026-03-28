@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Security.Claims;
@@ -7,7 +8,6 @@ using WebApplication1.DTO.Response;
 using WebApplication1.Mapper;
 using WebApplication1.Models;
 using WebApplication1.Services;
-using WebApplication1.Services.ServiceImpl;
 
 namespace WebApplication1.Controllers
 {
@@ -18,24 +18,26 @@ namespace WebApplication1.Controllers
     {
         private readonly IBookingService _bookingService;
         private readonly IUserService _userService;
+        private readonly IMapper _mapper;
         private readonly OpaService _opaService;
         private string LOGIN_REQUIRED = "Login to book a Concert.\nNew User? Sign up";
         public BookingController(IBookingService bookingService,
             IUserService userService,
-            OpaService opaService)
+            OpaService opaService,
+            IMapper mapper)
         {
             _opaService = opaService;
             _userService = userService;
             _bookingService = bookingService;
+            _mapper = mapper;
         }
         [HttpPost]
         public async Task<ActionResult<BookingResDto>> Create(BookingReqDto request)
         {
-            //var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             string UUID = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             int userId = await _userService.GetUserId(UUID);
             var role = User.FindFirst(ClaimTypes.Role)?.Value;
-            if (userId == null)
+            if (userId==0)
                 return Unauthorized(new
                 {
                     Message=LOGIN_REQUIRED
@@ -46,7 +48,7 @@ namespace WebApplication1.Controllers
                 return Forbid();
             booking.UserId = userId;
             Booking createdBooking=_bookingService.BookConcert(booking);
-            BookingResDto response = BookingMapper.ToResponse(createdBooking);
+            BookingResDto response = _mapper.Map<BookingResDto>(createdBooking);
             return Ok(response);
         }
         [Authorize]
@@ -68,6 +70,15 @@ namespace WebApplication1.Controllers
                  return Forbid();
             IEnumerable < BookingResDto> response = _bookingService.Get(userId);
             return Ok(response);
+        }
+        [Authorize]
+        [HttpPatch("{id}")]
+        public async Task<ActionResult> CancellBooking(int id) 
+        {
+            string message = _bookingService.CancelBooking(id);
+            if(message.Contains("successfully"))
+             return Ok(message);
+            return BadRequest(message);
         }
     }
 }

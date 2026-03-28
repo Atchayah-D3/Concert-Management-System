@@ -19,7 +19,7 @@ allow if {
 }
 
 allow if {
-    input.action in {"delete_concert", "update_concert"}
+    input.action in {"delete_concert", "update_concert","cancel_booking","edit_hall"}
 
     role := input.user.role
     permission := data.roles[role][_]

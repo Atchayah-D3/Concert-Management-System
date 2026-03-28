@@ -6,6 +6,7 @@ namespace WebApplication1.Mapper
 {
     public class UserMapper
     {
+        
         public static User ToEntity(UserReqDto dto)
         {
             return new User
@@ -23,7 +24,8 @@ namespace WebApplication1.Mapper
                 UserId=user.UserId,
                 UserName = user.UserName,                
                 Email=user.Email,
-                Role=user.Role
+                Role=user.Role,
+               
             };
          }
     }

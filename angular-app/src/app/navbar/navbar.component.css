@@ -40,3 +40,13 @@
   border-radius: 20px;
   font-weight: 600;
 }
+select {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-weight: 600;
+  background: #2c2c54;
+  color: white;
+  cursor: pointer;
+}

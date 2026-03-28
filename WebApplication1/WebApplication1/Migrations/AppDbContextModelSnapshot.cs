@@ -67,6 +67,9 @@ namespace WebApplication1.Migrations
                     b.Property<int>("CreatorId")
                         .HasColumnType("integer");
 
+                    b.Property<string>("CustomHall")
+                        .HasColumnType("text");
+
                     b.HasKey("ConcertId");
 
                     b.HasIndex("CreatorId");
@@ -94,15 +97,84 @@ namespace WebApplication1.Migrations
                     b.Property<decimal?>("Price")
                         .HasColumnType("numeric");
 
-                    b.Property<string>("Venue")
-                        .HasColumnType("text");
-
                     b.HasKey("ConcertSpecId");
 
                     b.HasIndex("ConcertId")
                         .IsUnique();
 
                     b.ToTable("ConcertSpecs");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.Hall", b =>
+                {
+                    b.Property<int>("HallId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("HallId"));
+
+                    b.Property<string>("HallName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<double>("PricePerHour")
+                        .HasColumnType("double precision");
+
+                    b.Property<int>("capacity")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("hallOwnerId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("HallId");
+
+                    b.HasIndex("hallOwnerId");
+
+                    b.ToTable("Halls");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.HallBooking", b =>
+                {
+                    b.Property<int>("HallBookingId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("HallBookingId"));
+
+                    b.Property<int?>("ConcertId")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("FromDateTime")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("HallId")
+                        .HasColumnType("integer");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("double precision");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("integer");
+
+                    b.Property<DateTime>("ToDateTime")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("HallBookingId");
+
+                    b.HasIndex("ConcertId");
+
+                    b.HasIndex("HallId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("HallBookings");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.User", b =>
@@ -176,12 +248,55 @@ namespace WebApplication1.Migrations
                     b.Navigation("Concert");
                 });
 
+            modelBuilder.Entity("WebApplication1.Models.Hall", b =>
+                {
+                    b.HasOne("WebApplication1.Models.User", "HallOwner")
+                        .WithMany("Halls")
+                        .HasForeignKey("hallOwnerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("HallOwner");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.HallBooking", b =>
+                {
+                    b.HasOne("WebApplication1.Models.Concert", "Concert")
+                        .WithMany("HallBookings")
+                        .HasForeignKey("ConcertId");
+
+                    b.HasOne("WebApplication1.Models.Hall", "Hall")
+                        .WithMany("Bookings")
+                        .HasForeignKey("HallId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("WebApplication1.Models.User", "User")
+                        .WithMany("HallBookings")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Concert");
+
+                    b.Navigation("Hall");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("WebApplication1.Models.Concert", b =>
                 {
                     b.Navigation("Bookings");
 
                     b.Navigation("ConcertSpecs")
                         .IsRequired();
+
+                    b.Navigation("HallBookings");
+                });
+
+            modelBuilder.Entity("WebApplication1.Models.Hall", b =>
+                {
+                    b.Navigation("Bookings");
                 });
 
             modelBuilder.Entity("WebApplication1.Models.User", b =>
@@ -189,6 +304,10 @@ namespace WebApplication1.Migrations
                     b.Navigation("Bookings");
 
                     b.Navigation("Concerts");
+
+                    b.Navigation("HallBookings");
+
+                    b.Navigation("Halls");
                 });
 #pragma warning restore 612, 618
         }

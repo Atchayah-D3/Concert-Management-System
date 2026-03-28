@@ -1,0 +1,32 @@
+<div class="profile-container" *ngIf="loggedInUser">
+  <div class="profile-card">
+    <h2>User Profile</h2>
+    <p><strong>Name:</strong> {{ loggedInUser.userName }}</p>
+    <p><strong>Email:</strong> {{ loggedInUser.email }}</p>
+
+    <div class="actions">
+      <button *ngIf="isConcertExist" (click)="toggleConcert()">
+        View My Concerts
+      </button>
+      <button *ngIf="isBookingsExist" (click)="toggleBooking()">
+        View My Bookings
+      </button>
+    </div>
+  </div>
+
+  <div class="section" *ngIf="showConcerts">
+
+    <app-concert-list mode="user" title="My Concerts"></app-concert-list>
+  </div>
+
+  <div class="section" *ngIf="showBookings">
+    <h3>My Bookings</h3>
+
+    <div class="booking-list">
+      <div *ngFor="let booking of loggedInUser.bookings; trackBy: trackById">
+        <app-booking-card [booking]="booking"></app-booking-card>
+      </div>
+    </div>
+  </div>
+
+</div>
